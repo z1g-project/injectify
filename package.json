@@ -3,14 +3,20 @@
     "version": "1.0.0",
     "author": "z1g Project",
     "type": "module",
+    "main": "lib/index.cjs",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/z1g-project/injectify.git"
+    },
     "scripts": {
         "build": "tsx build.ts",
 		"publish": ""
 	},
-	"dependencies": {
-        "tsx": "^4.9.3"
-    },
     "devDependencies": {
-        "esbuild": "^0.21.0"
+        "esbuild": "^0.21.0",
+        "prettier": "^2.8.0",
+        "rimraf": "^5.0.1",
+        "tsx": "^4.9.3"
     }
 }
