@@ -1,4 +1,5 @@
-import esbuild from "esbuild"
+import { build } from "esbuild"
+import { rimraf } from "rimraf"
 import { copyFile, mkdir, readFile } from 'node:fs/promises';
 await rimraf('dist');
 await mkdir('dist');
