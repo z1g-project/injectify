@@ -11,7 +11,7 @@
     },
     "scripts": {
         "build": "tsx build.ts",
-		"publish": "npm pub lish --access public"
+		"publish": "npm publish --access public"
 	},
     "devDependencies": {
         "esbuild": "^0.21.0",
