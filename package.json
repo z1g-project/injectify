@@ -1,0 +1,17 @@
+{
+    "name": "@z1g-project/injectify",
+    "version": "1.0.0",
+    "author": "z1g Project",
+    "type": "module",
+    "scripts": {
+        "test": "",
+        "build": "",
+		"publish": ""
+	},
+	"dependencies": {
+
+    },
+    "devDependencies": {
+        "esbuild": "^0.20.2"
+    }
+}
