@@ -3,7 +3,7 @@ import { cfg } from "./types"
 import { XOR } from "./xor"
 
 export default async function main() {
-    const cfg: cfg = self.__injectify$cfg
+    const cfg: cfg = window.__injectify$cfg
 
     if (cfg.fsType === "localstorage") {
         let plugins = await LFS(cfg.fsItem)
