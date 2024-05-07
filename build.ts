@@ -10,7 +10,7 @@ await build({
     sourcemap: true,
     minify: !isDevelopment,
     entryPoints: {
-        'bundle': './src/bundle.js',
+        'bundle': './src/index.ts',
     },
     bundle: true,
     logLevel: 'info',
