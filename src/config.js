@@ -5,5 +5,6 @@ self.__injectify$cfg = {
     fsItem: "injectifyPlugins", // Defines where to find the plugins to inject.
     location: "/injectify/", // Defines where injectify can find its files.
     whereTo: "head", // Defines where to inject. Either use the iframe's ID or just leave it at "head"
-    blacklist: [] // Blacklist of Plugin URLS (So if someone publishes a token logger you can block it)
+    blacklist: [], // Blacklist of Plugin URLS (So if someone publishes a token logger you can block it)
+    extraLogging: false // allows if logging is allowed or not. recommended for non-production ready things or if you want detailed errors 
 }

@@ -2,9 +2,12 @@ import { LFS, FFS } from "./fs"
 import { cfg } from "./types"
 import { XOR } from "./xor"
 
-export default async function main() {
+export default async function injectify() {
     const cfg: cfg = window.__injectify$cfg
-
+    if (cfg.extraLogging === true) {
+        console.log('Injectify has been inited')
+        console.log(`Configuration: ${cfg}`)
+    }
     if (cfg.fsType === "localstorage") {
         let plugins = await LFS(cfg.fsItem)
         let frameView = cfg.whereTo
@@ -16,6 +19,9 @@ export default async function main() {
             const encodedScript = cfg.useProxy ? XOR.encode(script) : script
             const scriptElement = document.createElement("script")
             scriptElement.src = encodedScript
+            if (cfg.extraLogging === true) {
+                console.log(scriptElement.src)
+            }
             if (cfg.whereTo === "head") {
                 document.head.appendChild(scriptElement)
             } else {
@@ -32,6 +38,9 @@ export default async function main() {
                     if (!document.querySelector(`script[src="${encodedScript}"]`)) {
                         const scriptElement = document.createElement("script")
                         scriptElement.src = encodedScript
+                        if (cfg.extraLogging === true) {
+                            console.log(scriptElement.src)
+                        }
                         document.head.appendChild(scriptElement)
                     }
                 } else {
@@ -55,6 +64,9 @@ export default async function main() {
             const encodedScript = cfg.useProxy ? XOR.encode(script) : script
             const scriptElement = document.createElement("script")
             scriptElement.src = encodedScript
+            if (cfg.extraLogging === true) {
+                console.log(scriptElement.src)
+            }
             if (cfg.whereTo === "head") {
                 document.head.appendChild(scriptElement)
             } else {
@@ -71,6 +83,9 @@ export default async function main() {
                     if (!document.querySelector(`script[src="${encodedScript}"]`)) {
                         const scriptElement = document.createElement("script")
                         scriptElement.src = encodedScript
+                        if (cfg.extraLogging === true) {
+                            console.log(scriptElement.src)
+                        }
                         document.head.appendChild(scriptElement)
                     }
                 } else {
@@ -87,4 +102,4 @@ export default async function main() {
     }    
 }
 
-main()
+injectify()

@@ -1,3 +1,7 @@
+import { Filer as FilerFS } from "./types"
+// @ts-ignore
+let Filer: FilerFS = window.FilerFS
+
 export function LFS(loc: string) {
     // LFS is short for LocalStorage FS
     const fsitm = loc
@@ -5,10 +9,10 @@ export function LFS(loc: string) {
     return plugins
 }
 
-export function FFS(file: string) {
+export async function FFS(file: string) {
     // FilerFS Compatability
     // NOTE This is very early in development and I still recommend using LocalStorage instead
-    const fsitm = Filer.fs.promises.readFile(file)
+    const fsitm = await Filer.fs.promises.readFile(file)
     const plugins = JSON.parse(fsitm)
     return plugins
 }
