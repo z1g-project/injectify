@@ -11,9 +11,8 @@
     },
     "scripts": {
         "build": "tsx build.ts",
-	    "publish": "npm publish --access public",
-	    "postinstall": "npm run build"
-    },
+		"publish": "npm pub lish --access public"
+	},
     "devDependencies": {
         "esbuild": "^0.21.0",
         "prettier": "^2.8.0",
