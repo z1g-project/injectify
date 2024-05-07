@@ -1,6 +1,6 @@
 import { LFS, FFS } from "./fs"
 import { cfg } from "./types"
-import XOR from "./xor"
+import { XOR } from "./xor"
 
 export default async function main() {
     const cfg: cfg = self.__injectify$cfg
