@@ -2,7 +2,7 @@ import { LFS, FFS } from "./fs"
 import { cfg } from "./types"
 import XOR from "./xor"
 
-export default function main() {
+export default async function main() {
     const cfg: cfg = self.__injectify$cfg
 
     if (cfg.fsType === "localstorage") {
