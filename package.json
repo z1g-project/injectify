@@ -5,13 +5,13 @@
     "type": "module",
     "scripts": {
         "test": "",
-        "build": "",
+        "build": "tsx build.ts",
 		"publish": ""
 	},
 	"dependencies": {
-
+        "tsx": "^4.9.3"
     },
     "devDependencies": {
-        "esbuild": "^0.20.2"
+        "esbuild": "^0.21.0"
     }
 }
