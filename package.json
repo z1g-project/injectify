@@ -1,6 +1,6 @@
 {
     "name": "@z1g-project/injectify",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "author": "z1g Project",
     "type": "module",
     "main": "lib/index.cjs",
