@@ -4,7 +4,6 @@
     "author": "z1g Project",
     "type": "module",
     "scripts": {
-        "test": "",
         "build": "tsx build.ts",
 		"publish": ""
 	},
