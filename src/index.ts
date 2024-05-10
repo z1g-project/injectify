@@ -12,6 +12,9 @@ export default async function injectify() {
         let plugins = await LFS(cfg.fsItem)
         let frameView = cfg.whereTo
         let blacklist = cfg.blacklist
+        if (cfg.extraLogging === true) {
+            console.log(frameView)
+        }
         plugins.forEach(script => {
             if (blacklist && blacklist.includes(script)) {
                 return 
@@ -57,6 +60,9 @@ export default async function injectify() {
         // Filer is very slow so this may take up some time. This is not suitible for injecting things such as Vencord. Read the docs for more info
         let frameView = cfg.whereTo
         let blacklist = cfg.blacklist
+        if (cfg.extraLogging === true) {
+            console.log(frameView)
+        }
         plugins.forEach(script => {
             if (blacklist && blacklist.includes(script)) {
                 return
