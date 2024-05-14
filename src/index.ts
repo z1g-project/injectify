@@ -108,4 +108,6 @@ export default async function injectify() {
     }    
 }
 
-injectify()
+window.addEventListener("DOMContentLoaded", () => {
+    injectify()
+})
