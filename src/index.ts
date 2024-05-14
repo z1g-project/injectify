@@ -4,7 +4,7 @@ import { XOR } from "./encoders"
 
 export default async function injectify() {
     // @ts-ignore
-    const cfg: cfg = window.__injectify$cfg
+    const cfg: cfg = JSON.stringify(window.__injectify$cfg)
     if (cfg.extraLogging === true) {
         console.log('Injectify has been inited')
         console.log(`Configuration: ${cfg}`)
