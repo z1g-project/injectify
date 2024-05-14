@@ -4,29 +4,29 @@ import { XOR } from "./encoders"
 
 export default async function injectify() {
     // @ts-ignore
-    const cfg: cfg = JSON.stringify(window.__injectify$cfg)
-    if (cfg.extraLogging === true) {
+    const configuration: cfg = window.__injectify$cfg;
+    if (configuration.extraLogging === true) {
         console.log('Injectify has been inited')
-        console.log(`Configuration: ${cfg}`)
+        console.log(`Configuration:`, configuration)
     }
-    if (cfg.fsType === "localstorage") {
-        let plugins: any = await LFS(cfg.fsItem)
-        let frameView: any = cfg.whereTo
-        let blacklist: any = cfg.blacklist
-        if (cfg.extraLogging === true) {
+    if (configuration.fsType === "localstorage") {
+        let plugins: any = await LFS(configuration.fsItem)
+        let frameView: any = configuration.whereTo
+        let blacklist: any = configuration.blacklist
+        if (configuration.extraLogging === true) {
             console.log(frameView)
         }
         plugins.forEach(script => {
             if (blacklist && blacklist.includes(script)) {
                 return 
             }
-            const encodedScript = cfg.useProxy ? XOR.encode(script) : script
+            const encodedScript = configuration.useProxy ? XOR.encode(script) : script
             const scriptElement = document.createElement("script")
             scriptElement.src = encodedScript
-            if (cfg.extraLogging === true) {
+            if (configuration.extraLogging === true) {
                 console.log(scriptElement.src)
             }
-            if (cfg.whereTo === "head") {
+            if (configuration.whereTo === "head") {
                 document.head.appendChild(scriptElement)
             } else {
                 frameView.contentWindow.document.head.appendChild(scriptElement)
@@ -37,12 +37,12 @@ export default async function injectify() {
                 if (blacklist && blacklist.includes(script)) {
                     return
                 }
-                const encodedScript = cfg.useProxy ? XOR.encode(script) : script
-                if (cfg.whereTo === "head") {
+                const encodedScript = configuration.useProxy ? XOR.encode(script) : script
+                if (configuration.whereTo === "head") {
                     if (!document.querySelector(`script[src="${encodedScript}"]`)) {
                         const scriptElement = document.createElement("script")
                         scriptElement.src = encodedScript
-                        if (cfg.extraLogging === true) {
+                        if (configuration.extraLogging === true) {
                             console.log(scriptElement.src)
                         }
                         document.head.appendChild(scriptElement)
@@ -56,25 +56,25 @@ export default async function injectify() {
                 }
             })
         }, 1000)
-    } else if (cfg.fsType === "filer") {
-        let plugins: any = await FFS(cfg.fsItem)
-        // Filer is very slow so this may take up some time. This is not suitible for injecting things such as Vencord. Read the docs for more info
-        let frameView: any = cfg.whereTo
-        let blacklist: any = cfg.blacklist
-        if (cfg.extraLogging === true) {
+    } else if (configuration.fsType === "filer") {
+        let plugins: any = await FFS(configuration.fsItem)
+        // Filer is very slow so this may take up some time. This is not suitable for injecting things such as Vencord. Read the docs for more info
+        let frameView: any = configuration.whereTo
+        let blacklist: any = configuration.blacklist
+        if (configuration.extraLogging === true) {
             console.log(frameView)
         }
         plugins.forEach(script => {
             if (blacklist && blacklist.includes(script)) {
                 return
             }
-            const encodedScript = cfg.useProxy ? XOR.encode(script) : script
+            const encodedScript = configuration.useProxy ? XOR.encode(script) : script
             const scriptElement = document.createElement("script")
             scriptElement.src = encodedScript
-            if (cfg.extraLogging === true) {
+            if (configuration.extraLogging === true) {
                 console.log(scriptElement.src)
             }
-            if (cfg.whereTo === "head") {
+            if (configuration.whereTo === "head") {
                 document.head.appendChild(scriptElement)
             } else {
                 frameView.contentWindow.document.head.appendChild(scriptElement)
@@ -85,12 +85,12 @@ export default async function injectify() {
                 if (blacklist && blacklist.includes(script)) {
                     return
                 }
-                const encodedScript = cfg.useProxy ? XOR.encode(script) : script
-                if (cfg.whereTo === "head") {
+                const encodedScript = configuration.useProxy ? XOR.encode(script) : script
+                if (configuration.whereTo === "head") {
                     if (!document.querySelector(`script[src="${encodedScript}"]`)) {
                         const scriptElement = document.createElement("script")
                         scriptElement.src = encodedScript
-                        if (cfg.extraLogging === true) {
+                        if (configuration.extraLogging === true) {
                             console.log(scriptElement.src)
                         }
                         document.head.appendChild(scriptElement)
