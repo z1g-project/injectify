@@ -1,6 +1,7 @@
 // Stock Settings, Refer to /docs to configure this correctly
 self.__injectify$cfg = {
     useProxy: false, // Weither or not it should use UV to inject scripts (proxied injection)
+    encoder: "XOR", // Encoder for useProxy to use to encode urls.
     fsType: "localstorage", // Defines the FS to use. Make sure you know what your doing
     fsItem: "injectifyPlugins", // Defines where to find the plugins to inject.
     location: "/injectify/", // Defines where injectify can find its files.

@@ -1,17 +1,18 @@
 import { LFS, FFS } from "./fs"
 import { cfg } from "./types"
-import { XOR } from "./xor"
+import { XOR } from "./encoders"
 
 export default async function injectify() {
+    // @ts-ignore
     const cfg: cfg = window.__injectify$cfg
     if (cfg.extraLogging === true) {
         console.log('Injectify has been inited')
         console.log(`Configuration: ${cfg}`)
     }
     if (cfg.fsType === "localstorage") {
-        let plugins = await LFS(cfg.fsItem)
-        let frameView = cfg.whereTo
-        let blacklist = cfg.blacklist
+        let plugins: any = await LFS(cfg.fsItem)
+        let frameView: any = cfg.whereTo
+        let blacklist: any = cfg.blacklist
         if (cfg.extraLogging === true) {
             console.log(frameView)
         }
@@ -56,10 +57,10 @@ export default async function injectify() {
             })
         }, 1000)
     } else if (cfg.fsType === "filer") {
-        let plugins = await FFS(cfg.fsItem)
+        let plugins: any = await FFS(cfg.fsItem)
         // Filer is very slow so this may take up some time. This is not suitible for injecting things such as Vencord. Read the docs for more info
-        let frameView = cfg.whereTo
-        let blacklist = cfg.blacklist
+        let frameView: any = cfg.whereTo
+        let blacklist: any = cfg.blacklist
         if (cfg.extraLogging === true) {
             console.log(frameView)
         }

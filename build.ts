@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { build } from "esbuild"
 import { rimraf } from "rimraf"
 import { copyFile, mkdir, readFile } from 'node:fs/promises';

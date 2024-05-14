@@ -1,5 +1,6 @@
 interface cfg {
     useProxy: boolean,
+    encoder: string,
     fsType: string,
     fsItem: string,
     location: string,
