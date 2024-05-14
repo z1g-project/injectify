@@ -4,7 +4,7 @@ Welcome to the Injectify Docs. These docs are also avalible on the [z1g Docs Sit
 
 ## Directory
 
-- Configuring Injectify
-- Building Injectify
-- How to use Injectify
-- FSTypes
+- [Configuring Injectify](./configurations.md)
+- [Building Injectify](./building.md)
+- [How to use Injectify](./howto.md)
+- [FSTypes](./fstypes.md)

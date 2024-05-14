@@ -4,7 +4,7 @@ The better made open source version of Sodiums Plugin Injector
 
 ## Usage
 
-> [!NOTE] If your a skid fuck off this is not for you. This is for developers
+> [!IMPORTANT] This is in very early development, please do not make github issues that are not detailed or that arent helpful.
 
 To add to an existing React, Dreamland, Next, etc project you can do it via downloading the npm package and adding it to your site via backend or using something like vite.
 
@@ -16,7 +16,7 @@ if your statically hosting this simply build this repository and add it to your 
 
 ### Setting up Plugins
 
-Plugins should be saved to a localstorage item or you can modify the configuration to use something like `FilerFS` to access the plugins. Refer to our documentation to learn how to configure your config file.
+Plugins should be saved to a localstorage item or you can modify the configuration to use something like `FilerFS` to access the plugins. Refer to our [documentation](/docs/readme.md) to learn how to configure your config file.
 
 ### Credits
 
