@@ -1,5 +1,4 @@
 node_modules
 docs
 .github
-src
 build.ts
