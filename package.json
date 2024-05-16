@@ -12,12 +12,12 @@
     },
     "scripts": {
         "build": "tsx build.ts",
-		"release": "npm run build && npm publish --access public"
-	},
+        "release": "npm run build && npm publish --access public"
+    },
     "devDependencies": {
-        "esbuild": "^0.21.0",
-        "prettier": "^2.8.0",
-        "rimraf": "^5.0.1",
-        "tsx": "^4.9.3"
+        "esbuild": "^0.21.3",
+        "prettier": "^3.2.5",
+        "rimraf": "^5.0.7",
+        "tsx": "^4.10.3"
     }
 }
