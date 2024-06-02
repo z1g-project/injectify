@@ -1,6 +1,7 @@
 interface cfg {
     useProxy: boolean,
     encoder: string,
+    manifestLoc: string,
     fsType: string,
     fsItem: string,
     location: string,
