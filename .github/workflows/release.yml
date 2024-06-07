@@ -1,18 +1,20 @@
 name: Release to npm
 
 on:
-  release:
-    types: [created, published]
+  push:
+    paths:
+      - 'package.json'
 
 jobs:
-  publish:
+  release:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Login to npm registry
-      run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
-      env:
-        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-    - name: Publish to npm
-      run: npm publish --access public
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Login to npm
+        run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Release to npm
+        if: github.event_name == 'push' && contains(github.event.head_commit.modified, 'package.json')
+        run: npm run release
