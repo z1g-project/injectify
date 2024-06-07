@@ -1,5 +1,5 @@
 import { LFS, FFS } from "./fs"
-import { cfg } from "./types"
+import { cfg, extdata } from "./types"
 import { XOR } from "./encoders"
 import axios from "axios"
 
@@ -16,8 +16,45 @@ export default async function injectify() {
             throw new Error("You must specify where to inject items to.")
         }
         if (configuration.manifestLoc.includes("http")) {
-            axios.get(configuration.manifestLoc).then(() => {
-                // TODO
+            axios.get(configuration.manifestLoc).then(async (val: any) => {
+                let exts: (extdata | any)[]
+                try {
+                    exts = JSON.parse(val)
+                } catch (err: any) {
+                    throw new Error(err)
+                }
+                if (configuration.extraLogging === true) {
+                    console.log(`Using Manifest v2 CFG from ${configuration.manifestLoc}`)
+                    console.log(exts)
+                }
+                if (configuration.whereTo === 'head') {
+                    exts.forEach((ext: extdata | any) => {
+                        const script = document.createElement('script')
+                        script.src = ext.url
+                        console.log(`Injected: ${ext.name} v${ext.version} to Head`)
+                        document.head.appendChild(script)
+                    });
+                } else {
+                    if (document.getElementById(configuration.whereTo) === null || undefined) {
+                        // @ts-expect-error
+                        const to: HTMLElement = document.getElementById(configuration.whereTo)
+                        exts.forEach((ext: extdata | any) => {
+                            const script = document.createElement('script')
+                            script.src = ext.url
+                            console.log(`Injected: ${ext.name} v${ext.version} to Head`)
+                            to.appendChild(script)
+                        });
+                    } else {
+                        // @ts-expect-error
+                        const to: HTMLElement = document.querySelector(configuration.whereTo)
+                        exts.forEach((ext: extdata | any) => {
+                            const script = document.createElement('script')
+                            script.src = ext.url
+                            console.log(`Injected: ${ext.name} v${ext.version} to Head`)
+                            to.appendChild(script)
+                        });
+                    }
+                }
             })
         } else {
 
