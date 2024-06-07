@@ -4,7 +4,8 @@ The better made open source version of Sodiums Plugin Injector
 
 ## Usage
 
-> [!IMPORTANT] This is in very early development, please do not make github issues that are not detailed or that arent helpful.
+> [!IMPORTANT]  
+> This is in very early development, please do not make github issues that are not detailed or that arent helpful.
 
 To add to an existing React, Dreamland, Next, etc project you can do it via downloading the npm package and adding it to your site via backend or using something like vite.
 
@@ -12,7 +13,7 @@ To add to an existing React, Dreamland, Next, etc project you can do it via down
 npm i @z1g-project/injectify
 ```
 
-if your statically hosting this simply build this repository and add it to your site or use `unpkg` to add it.
+if your statically hosting this simply build this repository and add it to your site or use [`unpkg`](https://unpkg.com/@z1g-project/injectify@0.5.5-prev/dist/bundle.js) to add it.
 
 ### Setting up Plugins
 
