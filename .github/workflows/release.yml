@@ -12,9 +12,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Install Deps
-        run: pnpm i
+        run: npm i
       - name: Release to npm
         if: github.event_name == 'push' && contains(github.event.head_commit.modified, 'package.json')
-        run: pnpm run release
+        run: npm run release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
