@@ -57,9 +57,49 @@ export default async function injectify() {
                 }
             })
         } else {
-
+            fetch(configuration.manifestLoc).then(async (val: any) => {
+                let exts: (extdata | any)[]
+                try {
+                    exts = JSON.parse(val)
+                } catch (err: any) {
+                    throw new Error(err)
+                }
+                if (configuration.extraLogging === true) {
+                    console.log(`Using Manifest v2 CFG from ${configuration.manifestLoc}`)
+                    console.log(exts)
+                }
+                if (configuration.whereTo === 'head') {
+                    exts.forEach((ext: extdata | any) => {
+                        const script = document.createElement('script')
+                        script.src = ext.url
+                        console.log(`Injected: ${ext.name} v${ext.version} to Head`)
+                        document.head.appendChild(script)
+                    });
+                } else {
+                    if (document.getElementById(configuration.whereTo) === null || undefined) {
+                        // @ts-expect-error
+                        const to: HTMLElement = document.getElementById(configuration.whereTo)
+                        exts.forEach((ext: extdata | any) => {
+                            const script = document.createElement('script')
+                            script.src = ext.url
+                            console.log(`Injected: ${ext.name} v${ext.version} to Head`)
+                            to.appendChild(script)
+                        });
+                    } else {
+                        // @ts-expect-error
+                        const to: HTMLElement = document.querySelector(configuration.whereTo)
+                        exts.forEach((ext: extdata | any) => {
+                            const script = document.createElement('script')
+                            script.src = ext.url
+                            console.log(`Injected: ${ext.name} v${ext.version} to Head`)
+                            to.appendChild(script)
+                        });
+                    }
+                }
+            })
         }
     } else {
+        console.warn('Manifest v1 will be dropped in 2025, only continue to use it if your using a legacy site such as sodium')
         if (configuration.fsType === "localstorage") {
             let plugins: any = await LFS(configuration.fsItem)
             let frameView: any = configuration.whereTo
