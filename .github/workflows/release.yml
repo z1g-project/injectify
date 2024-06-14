@@ -14,7 +14,6 @@ jobs:
       - name: Install Deps
         run: npm i
       - name: Release to npm
-        if: github.event_name == 'push' && contains(github.event.head_commit.modified, 'package.json')
         run: npm run release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
