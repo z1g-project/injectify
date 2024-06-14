@@ -1,7 +1,7 @@
 {
     "name": "@z1g-project/injectify",
     "description": "A improved version of Sodiums Plugin Injector ready to use in all your projects.",
-    "version": "0.5.7-prev",
+    "version": "0.5.6-prev",
     "author": "z1g Project",
     "type": "module",
     "main": "lib/index.cjs",
