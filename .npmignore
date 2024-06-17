@@ -4,3 +4,4 @@ docs
 build.ts
 pnpm-lock.yaml
 package-lock.json
+examples
