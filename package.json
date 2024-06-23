@@ -1,10 +1,14 @@
 {
     "name": "@z1g-project/injectify",
     "description": "A improved version of Sodiums Plugin Injector ready to use in all your projects.",
-    "version": "0.5.8-prev",
+    "version": "0.5.9-prev",
     "author": "z1g Project",
     "type": "module",
     "main": "lib/index.cjs",
+    "exports": {
+        ".": "./lib/index.cjs",
+        "./blunder": "./src/index.ts"
+    },
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -15,10 +19,10 @@
         "release": "npm run build && npm publish --access public"
     },
     "devDependencies": {
-        "esbuild": "^0.21.3",
-        "prettier": "^3.2.5",
         "axios": "^1.7.2",
+        "esbuild": "^0.21.5",
+        "prettier": "^3.3.2",
         "rimraf": "^5.0.7",
-        "tsx": "^4.10.3"
+        "tsx": "^4.15.7"
     }
 }
